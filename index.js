@@ -11,7 +11,12 @@ require('dotenv').config()
 
 
 const port = process.env.PORT || 5500
-app.use(cors())
+app.use(cors({
+    origin :[ "http://localhost:5173",
+    "https://ai-website-frontend-jymm.onrender.com"],
+    
+    credentials : true
+}))
 
 
 const AuthRouter = require('./routes/auth')
@@ -30,7 +35,7 @@ app.use('/api',paymentRouter)
 app.get("/health",(req,res)=>{
             const token = req.cookies.token
             console.log(token)
-    res.send("Ai_wesite is running Healdy")
+    return res.json({token : token})
 
 })
 
