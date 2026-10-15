@@ -11,12 +11,7 @@ require('dotenv').config()
 
 
 const port = process.env.PORT || 5500
-app.use(cors({
-    origin :[ "http://localhost:5173",
-    "https://ai-website-frontend-jymm.onrender.com"],
-    
-    credentials : true
-}))
+app.use(cors())
 
 
 const AuthRouter = require('./routes/auth')
