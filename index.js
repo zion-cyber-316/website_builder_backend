@@ -13,7 +13,7 @@ require('dotenv').config()
 const port = process.env.PORT || 5500
 app.use(cors({
     origin :[ "http://localhost:5173",
-    "https://ai-website-frontend-jymm.onrender.com"],
+    "https://website-builder-frontend-fz70.onrender.com"],
     
     credentials : true
 }))
