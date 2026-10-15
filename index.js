@@ -32,15 +32,17 @@ app.use('/api',AuthRouter)
 app.use('/api',websiteRouter)
 app.use('/api',paymentRouter)
 
-app.get("/health",(req,res)=>{
-        console.log("Cookie header:", req.headers.cookie);
+app.get("/health", (req, res) => {
+  console.log("Cookie header:", req.headers.cookie);
   console.log("Parsed cookies:", req.cookies);
+  console.log("Token received:", Boolean(req.cookies?.token));
 
-  return res.json({
+  return res.status(200).json({
+    success: true,
     cookieReceived: Boolean(req.cookies?.token),
     token: req.cookies?.token || null
-
-})
+  });
+});
 
 
 
