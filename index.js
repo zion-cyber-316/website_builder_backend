@@ -33,9 +33,12 @@ app.use('/api',websiteRouter)
 app.use('/api',paymentRouter)
 
 app.get("/health",(req,res)=>{
-            const token = req.cookies.token
-            console.log(token)
-    return res.json({token : token})
+        console.log("Cookie header:", req.headers.cookie);
+  console.log("Parsed cookies:", req.cookies);
+
+  return res.json({
+    cookieReceived: Boolean(req.cookies?.token),
+    token: req.cookies?.token || null
 
 })
 
